@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập chữ ký số RSA</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="section">
+          <div class="title">SINH KHÓA</div>
+          <div class="line">
+            <div class="left">1. Chọn 2 số nguyên tố ngẫu nhiên</div>
+            <div class="right">
+              <div class="input">
+                <label for="p">p</label>
+                <input type="text" name="p" id="p" value="" />
+              </div>
+              <div class="input">
+                <label for="q">q</label>
+                <input type="text" name="q" id="q" value="" />
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="left">
+              <div class="name">2. Khóa bí mật</div>
+              <input type="text" id="privateKey" />
+              <div class="icon" id="showPrivate" >
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 54.308 54.308"
+                  style="enable-background: new 0 0 54.308 54.308"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      style="fill: #010002"
+                      d="M53.583,25.902c-5.448-9.413-15.575-15.26-26.429-15.26S6.173,16.489,0.725,25.902L0,27.154
+                   l0.725,1.252c5.447,9.413,15.574,15.26,26.429,15.26s20.981-5.847,26.429-15.26l0.725-1.252L53.583,25.902z M5.826,27.154
+                   c2.187-3.319,5.102-6.031,8.452-7.993c-1.198,2.126-1.889,4.574-1.889,7.183c0,3.778,1.446,7.215,3.797,9.821
+                   C12.031,34.179,8.419,31.089,5.826,27.154z M37.843,36.302c2.426-2.621,3.922-6.114,3.922-9.958c0-0.999-0.102-1.974-0.293-2.917
+                   c-0.432,1.268-1.207,2.377-2.222,3.208c-0.762,0.624-1.658,1.086-2.635,1.351c-0.594,0.161-1.216,0.255-1.86,0.255
+                   c-3.922,0-7.101-3.179-7.101-7.101c0-1.605,0.539-3.08,1.436-4.269c0.289-0.383,0.615-0.735,0.974-1.052
+                   c1.55,0.18,3.069,0.503,4.543,0.956c1.81,0.557,3.547,1.314,5.184,2.249c0.687,0.393,1.36,0.811,2.008,1.266
+                   c2.608,1.829,4.888,4.145,6.681,6.865C45.83,31.178,42.117,34.323,37.843,36.302z"
+                    />
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </div>
+            </div>
+            <div class="right">
+              <div class="name">Khóa công khai</div>
+              <input type="text" style="width: 100px" id="publicKey" />
+            </div>
+          </div>
+          <div class="line">
+            <div class="action">
+              <button id="randomBtn">Ngẫu nhiên</button>
+              <button id="generateKey">Sinh khóa</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="section2">
+          <div class="title">KÝ VĂN BẢN</div>
+          <div class="line">
+            <div class="line-left">Văn bản</div>
+            <div class="line-right right-t-el">
+              <div class="">
+                <input type="text" id="text1"></input>
+                <input type="file" hidden id="file-store" />
+              </div>
+              <button id="pickFIleBtn">Chọn</button>
+            </div>
+          </div>
+          <div class="line">
+            <div class="line-left">Kết quả</div>
+            <div class="line-right">
+              <input class="w-100" type="text" id="signText"/>
+            </div>
+          </div>
+          <div class="line">
+            <div class="action">
+              <button id="exBtn">Xuất kết quả</button>
+              <button id="signBtn">Ký văn bản</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="section2">
+          <div class="title">Xác thực chữ ký</div>
+          <div class="line">
+            <div class="line-left">Văn bản</div>
+            <div class="line-right right-t-el">
+              <div class="">
+                <input type="text" id="text2"/>
+                <input type="file" hidden id="file-store2" />
+              </div>
+              <button id="pickFIleBtn2">Chọn</button>
+            </div>
+          </div>
+          <div class="line">
+            <div class="line-left">Kết quả</div>
+            <div class="line-right">
+                <input class="w-100" type="text" id="signText2"/>
+            </div>
+          </div>
+          <div class="line">
+            <div class="action">
+              <button id="exBtn2">Xuất kết quả</button>
+              <button id="signBtn2">Xác thực</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/peterolson/BigInteger.js@1.6.40/BigInteger.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
